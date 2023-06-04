@@ -80,9 +80,7 @@ export function useFormFieldsRef<FieldName extends string>(
    * @returns `setRef` returns a callback used to update the reference bound to the given key.
    */
   const setRef =
-    (
-      key: FieldName
-    ): RefCallback<HTMLFieldElement> | RefCallback<HTMLRadioElement> =>
+    (key: FieldName): RefCallback<HTMLFieldElement | HTMLRadioElement> =>
     (ref: HTMLFieldElement) => {
       if (fields.includes(key)) {
         if (ref.type === "radio") {

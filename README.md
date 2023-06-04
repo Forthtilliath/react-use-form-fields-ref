@@ -1,4 +1,4 @@
-# react-useFormFieldsRef
+# react-use-form-fields-ref
 
 [![github version](https://img.shields.io/github/package-json/v/Forthtilliath/react-use-form-fields-ref?color=success)](https://img.shields.io/github/package-json/v/Forthtilliath/react-use-form-fields-ref) [![github repo size](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref)](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref) [![npm download](https://img.shields.io/npm/dt/react-use-form-fields-ref)](https://img.shields.io/npm/dt/react-use-form-fields-ref) [![licence](https://img.shields.io/npm/l/react-use-form-fields-ref)](https://img.shields.io/npm/l/react-use-form-fields-ref)
 

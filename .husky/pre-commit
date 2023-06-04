@@ -19,7 +19,7 @@ npm run check-format ||
 
 # ============================== check ESLINT ==============================
 
-npm run check-lint ||
+npm run lint-fix ||
 (
         echo '❌ ESLint check failed. ❌'
         false; 
@@ -38,7 +38,6 @@ npm run check-types ||
 echo '🤔 Everything looks good. Try to npm run build 🤔'
 
 # ============================== check RUN BUILD ==============================
-
 
 # npm run build ||
 # (

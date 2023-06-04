@@ -5,8 +5,10 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "jsxImportSource": "solid-js",
+    "jsxImportSource": "react",
     "jsx": "preserve",
     "strict": true
-  }
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules"]
 }
