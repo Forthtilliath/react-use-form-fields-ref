@@ -1,4 +1,3 @@
-import React from "react";
 import { useFormFieldsRef } from "./useFormFieldsRef";
 
 export function MyForm() {
