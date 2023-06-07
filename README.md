@@ -2,9 +2,9 @@
 
 [![github version](https://img.shields.io/github/package-json/v/Forthtilliath/react-use-form-fields-ref?color=success)](https://img.shields.io/github/package-json/v/Forthtilliath/react-use-form-fields-ref) [![github repo size](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref)](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref) [![npm download](https://img.shields.io/npm/dt/react-use-form-fields-ref)](https://img.shields.io/npm/dt/react-use-form-fields-ref) [![licence](https://img.shields.io/npm/l/react-use-form-fields-ref)](https://img.shields.io/npm/l/react-use-form-fields-ref)
 
-The react-use-form-fields-ref package is a library that provides a React hook called useFormFieldsRef. This hook allows you to manage form field references in a React component. It returns an array containing two elements: an object that contains the references for each field, and an object that contains functions to interact with these references.
+The ``@forthtilliath/react-use-form-fields-ref`` package is a library that provides a React hook called ``useFormFieldsRef``. This hook allows you to manage form field references in a React component. It returns an array containing two elements: an object that contains the references for each field, and an object that contains functions to interact with these references.
 
-The useFormFieldsRef hook is useful for simplifying the management of form fields in a React component. It makes it easy to define references for each field and to interact with these references in a consistent way. The react-useFormFieldsRef package is easy to use and can be installed via NPM, Yarn or PNPM.
+The ``useFormFieldsRef`` hook is useful for simplifying the management of form fields in a React component. It makes it easy to define references for each field and to interact with these references in a consistent way. The ``@forthtilliath/react-use-form-fields-ref`` package is easy to use and can be installed via NPM, Yarn or PNPM.
 
 ## Install
 
@@ -33,7 +33,7 @@ Here are some examples of how you can use the useFormFieldsRef hook:
 ##### JSX
 
 ```jsx
-import { useFormFieldsRef } from "react-useFormFieldsRef";
+import { useFormFieldsRef } from "@forthtilliath/react-use-form-fields-ref";
 
 export function MyForm() {
   const [
@@ -87,7 +87,7 @@ export function MyForm() {
 ##### TSX
 
 ```tsx
-import { useFormFieldsRef } from "react-useFormFieldsRef";
+import { useFormFieldsRef } from "@forthtilliath/react-use-form-fields-ref";
 
 export function MyForm() {
   const [
@@ -117,7 +117,7 @@ export function MyForm() {
         <input type="radio" name="age" ref={setRef("age")} value="minor" />
       </label>
       <label>
-        <span>Minor:</span>
+        <span>Major:</span>
         <input type="radio" name="age" ref={setRef("age")} value="major" />
       </label>
 
@@ -280,7 +280,9 @@ const focusIfEmpty = (key) => {
 ##### TSX
 
 ```tsx
-const focusIfEmpty = (key: (typeof inputsName)[number]) => {
+type InputKey = (typeof inputsName)[number];
+
+const focusIfEmpty = (key: InputKey) => {
   const field = getField(key);
   if (isFieldNotNull(field)) {
     if (field.value === "") field.focus();
@@ -303,15 +305,14 @@ The `useFormFieldsRefActions` type helps to get the return type of the second pa
 export const connexionInputs = ["username", "password"] as const;
 
 // In your child component
-import { useFormFieldsRefActions } from "react-useFormFieldsRef";
+import { useFormFieldsRefActions } from "@forthtilliath/react-use-form-fields-ref";
 
 // Action contains all actions type
-type Action = useFormFieldsRefActions<(typeof connexionInputs)[number]>;
+type InputKey = (typeof connexionInputs)[number];
+type Action = useFormFieldsRefActions<InputKey>;
 
 type Props = {
   // Note the setRef to get only the type of the methode setRef
   setRef: Action["setRef"];
-  // Same than
-  setRef: useFormFieldsRefActions<(typeof connexionInputs)[number]>["setRef"];
 };
 ```
