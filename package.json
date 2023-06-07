@@ -1,8 +1,24 @@
 {
+  "name": "@forthtilliath/react-use-form-fields-ref",
+  "version": "0.1.0",
+  "description": "A custom React hook, useFormFieldsRef, that creates an object with references to form inputs and provides methods to get and set their values, as well as to create FormData for form submissions.",
+  "main": "./src/useFormFieldsRef.ts",
+  "keywords": [
+    "react",
+    "hook",
+    "custom hook",
+    "useRef",
+    "form",
+    "fields",
+    "references",
+    "input",
+    "FormData"
+  ],
+  "author": "forthtilliath",
+  "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test-watch": "jest --watchAll"
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0"
