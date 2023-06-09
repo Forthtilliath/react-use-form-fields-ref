@@ -1,6 +1,10 @@
-# react-use-form-fields-ref
+# @forthtilliath/react-use-form-fields-ref
 
-[![npm version](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?&label=version&style=flat-square)](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?label=version&style=flat-square) [![github repo size](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square) [![npm download](https://img.shields.io/npm/dt/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/npm/dt/react-use-form-fields-ref?style=flat-square) [![licence](https://img.shields.io/github/license/forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/github/license/forthtilliath/react-use-form-fields-ref?style=flat-square)
+[![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/Forthtilliath/react-use-form-fields-ref/blob/main/README.md) [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Forthtilliath/react-use-form-fields-ref/blob/main/README.fr.md)
+
+## Introduction
+
+[![npm version](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?&label=version&style=flat-square)](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?label=version&style=flat-square) [![npm download](https://img.shields.io/npm/dt/@forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/npm/dt/@forthtilliath/react-use-form-fields-ref?style=flat-square) [![github repo size](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square) [![licence](https://img.shields.io/npm/l/@forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/npm/l/@forthtilliath/react-use-form-fields-ref?style=flat-square)
 
 The ``@forthtilliath/react-use-form-fields-ref`` package is a library that provides a React hook called ``useFormFieldsRef``. This hook allows you to manage form field references in a React component. It returns an array containing two elements: an object that contains the references for each field, and an object that contains functions to interact with these references.
 
@@ -28,7 +32,7 @@ pnpm install --save @forthtilliath/react-use-form-fields-ref
 
 ## Usage
 
-Here are some examples of how you can use the useFormFieldsRef hook:
+Here's a sample form showing how to use the ``useFormFieldsRef`` hook to handle references for input fields, radio buttons, and a drop-down list:
 
 ##### JSX
 
@@ -138,14 +142,11 @@ export function MyForm() {
 }
 ```
 
-In the example above, we are creating a form with :
+The code uses the `useFormFieldsRef` hook to create a reference for each input field in the form. This function returns an array containing two elements: an object of references for each input field, and an object containing functions to interact with the references.
 
-- two input fields : `username` and `password`;
-- a radio selection for the `age`;
-- a selection field for the `gender`;
-- a text box for the `message`.
+Once the references are created, the code defines the input fields of the form using the JSX elements `<input>`, `<select>`, and `<textarea>`. For each input field, it uses the `setRef` function provided by `useFormFieldsRef` to create a reference.
 
-We create a reference to each input field using the `setRef` function. When the user clicks the submit button, we log the values of the username field after to have check if the field is defined (with `setRef`), the age field, all fields, and the form data.
+When the user submits the form by clicking on the "Submit" button, the code calls the `handleSubmit` function, which uses the functions provided by `useFormFieldsRef` to access the current values of the input fields, and logs them to the console.
 
 ## useFormFieldsRef return
 
@@ -154,7 +155,7 @@ The hook returns an array containing two elements:
 - The first element is an initialized `useRef` object with an object containing null values for each input.
 - The second element is an object containing functions to interact with the `useRef` object.
 
-### First key : refs
+### First key : `useRef` object
 
 The first element is the reference which contains all fields. You can access them in the following way :
 
@@ -173,6 +174,7 @@ const checkInput = () => {
   }
 };
 ```
+Here, we can see that ``refs.current.username`` corresponds to the reference for the ``username`` field. This reference can be used to access the current value of the input field.
 
 ### Second key : actions
 
@@ -188,9 +190,11 @@ The second element is an object which contains all actions.
 <input type="text" ref={setRef("username")} placeholder="Username" />
 ```
 
+In this example, ``setRef("username")`` is used to create a reference for the input field.
+
 #### getRef
 
-`getRef` returns the value contained in the fieldsRef reference to the given key. An input radio will return an empty string.
+`getRef` returns the value contained in the ``fieldsRef`` reference to the given key. An input radio will return an empty string.
 
 ##### JSX / TSX
 
@@ -202,9 +206,11 @@ const handleSubmit = () => {
 };
 ```
 
+The code creates references for the "username" and "password" input fields using `useFormFieldsRef`, and uses `getRef` to obtain the value of the "username" input field when `handleSubmit` is called and display it.
+
 #### getField
 
-`getField` returns the element contained in the fieldsRef reference to the given key. An input radio will return an array of input which contains HTMLInputElement from the given key.
+`getField` returns the element contained in the `fieldsRef` reference to the given key. An input radio will return an array of input which contains `HTMLInputElement` from the given key.
 
 ##### JSX
 
@@ -232,6 +238,8 @@ const checkInput = () => {
 };
 ```
 
+The code creates a reference for the "username" input field using ``useFormFieldsRef``, and uses ``getField`` to obtain the value of the "username" input field when ``checkInput`` is called. If the value of the input field is an empty string, ``checkInput`` sets the focus on the "username" input field.
+
 #### getAllRef
 
 `getAllRef` returns an object containing values from a list of input references.
@@ -246,9 +254,11 @@ const handleSubmit = () => {
 };
 ```
 
+The code creates references for the "username" and "password" input fields and uses ``getAllRef`` to obtain the values of both input fields when ``handleSubmit`` is called and logs them to the console.
+
 #### getFormData
 
-`getFormData` gets form data from input fields and returns it as a FormData object.
+`getFormData` gets form data from input fields and returns it as a ``FormData`` object.
 
 ##### JSX / TSX
 
@@ -260,9 +270,11 @@ const handleSubmit = () => {
 };
 ```
 
+The code creates references for the "username" and "password" input fields and defines a function ``getFormData`` that returns a ``FormData`` object containing the values of the input fields. When ``handleSubmit`` is called, the code logs an object containing the values of the input fields to the console.
+
 #### isFieldNotNull
 
-`isFieldNotNull` is a function that checks if a given HTMLFieldElement is not null.
+`isFieldNotNull` is a function that checks if a given ``HTMLFieldElement`` is not null.
 
 ##### JSX
 
@@ -291,6 +303,8 @@ const focusIfEmpty = (key: InputKey) => {
   }
 };
 ```
+
+The code defines a function ``focusIfEmpty`` that sets the focus on an input field if it is empty, and throws an error if the field is null.
 
 ## Utility types
 
