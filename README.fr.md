@@ -34,7 +34,7 @@ pnpm install --save @forthtilliath/react-use-form-fields-ref
 
 Voici un exemple de formulaire montrant comment utiliser le hook ``useFormFieldsRef`` pour gérer les références des champs de saisie, des boutons radio et d'une liste déroulante :
 
-##### JSX
+__JSX__
 
 ```jsx
 import { useFormFieldsRef } from "@forthtilliath/react-use-form-fields-ref";
@@ -88,7 +88,7 @@ export function MyForm() {
 }
 ```
 
-##### TSX
+__TSX__
 
 ```tsx
 import { useFormFieldsRef } from "@forthtilliath/react-use-form-fields-ref";
@@ -156,11 +156,11 @@ Le hook `useFormFieldsRef` renvoie un tableau contenant deux éléments :
 - Le deuxième élément est un objet contenant des fonctions pour interagir avec l'objet `useRef`.
 
 
-### Premier éléments : objet `useRef`
+### Premier élément : objet `useRef`
 
 Dans le code donné, on peut voir que le premier élément d'un tableau renvoyé par la fonction useFormFieldsRef correspond à un objet de références pour chaque champ de saisie. On peut y accéder de la manière suivante :
 
-##### JSX / TSX
+__JSX / TSX__
 
 ```tsx
 const [myFormRef, actions] = useFormFieldsRef(myFields);
@@ -178,15 +178,23 @@ const checkInput = () => {
 ```
 Ici, on peut voir que ``refs.current.username`` correspond à la référence du champ ``username``. Cette référence peut être utilisée pour accéder à la valeur actuelle du champ de saisie.
 
-### Second key : actions
+### Second élément : ``actions``
 
-The second element is an object which contains all actions.
+Le second élément est un objet qui contient toutes les actions. Voici une liste de ces fonctions avec une brève description de ce qu'elles font : 
+
+* `getFieldsRef` : renvoie un objet qui contient les références pour chaque champ.
+* `setRef` : renvoie une fonction qui prend un élément `HTMLInputElement`, `HTMLSelectElement` ou `HTMLTextAreaElement` en argument et définit la référence pour le champ correspondant au nom donné.
+* `getRef` : renvoie la référence pour le champ correspondant au nom donné.
+* `getField` : renvoie un objet contenant la référence et la valeur pour le champ correspondant au nom donné.
+* `getAllRefs` : renvoie un objet contenant toutes les références pour chaque champ.
+* `getFormData` : renvoie un tableau contenant des paires clé-valeur pour chaque champ.
+* `isFieldNotNull` : renvoie `true` si le champ n'est pas nul, `false` sinon.
 
 #### setRef
 
 `setRef` renvoie un rappel utilisé pour mettre à jour la référence liée à la clé donnée.
 
-##### JSX / TSX
+__JSX / TSX__
 
 ```tsx
 <input type="text" ref={setRef("username")} placeholder="Username" />
@@ -198,7 +206,7 @@ Dans cet exemple, ``setRef("username")`` est utilisé pour créer une référenc
 
 ``getRef`` renvoie la valeur contenue dans la référence ``fieldsRef`` pour la clé donnée. Un bouton radio renverra une chaîne vide.
 
-##### JSX / TSX
+__JSX / TSX__
 
 ```tsx
 const [, { getRef }] = useFormFieldsRef(["username", "password"]);
@@ -214,7 +222,7 @@ Le code crée des références pour les champs de saisie "username" et "password
 
 `getField` renvoie l'élément contenu dans la référence `fieldsRef` pour la clé donnée. Un bouton radio renverra un tableau d'entrées qui contient des `HTMLInputElement` de la clé donnée.
 
-##### JSX
+__JSX__
 
 ```jsx
 const [, { getField }] = useFormFieldsRef(["username", "password"]);
@@ -227,7 +235,7 @@ const checkInput = () => {
 };
 ```
 
-##### TSX
+__TSX__
 
 ```tsx
 const [, { getField }] = useFormFieldsRef(["username", "password"]);
@@ -246,7 +254,7 @@ Le code crée une référence pour le champ de saisie "username" en utilisant `u
 
 `getAllRef` renvoie un objet contenant des valeurs à partir d'une liste de références d'entrée.
 
-##### JSX / TSX
+__JSX / TSX__
 
 ```tsx
 const [, { getAllRef }] = useFormFieldsRef(["username", "password"]);
@@ -262,7 +270,7 @@ Le code crée des références pour les champs de saisie "username" et "password
 
 `getFormData` récupère les données d'un formulaire à partir des champs de saisie et les renvoie sous forme d'un objet ``FormData``.
 
-##### JSX / TSX
+__JSX / TSX__
 
 ```tsx
 const [, { getFormData }] = useFormFieldsRef(["username", "password"]);
@@ -278,7 +286,7 @@ Le code crée des références pour les champs de saisie "username" et "password
 
 `isFieldNotNull` est une fonction qui vérifie si un élément ``HTMLFieldElement`` donné n'est pas nul.
 
-##### JSX
+__JSX__
 
 ```jsx
 const focusIfEmpty = (key) => {
@@ -291,7 +299,7 @@ const focusIfEmpty = (key) => {
 };
 ```
 
-##### TSX
+__TSX__
 
 ```tsx
 type InputKey = (typeof inputsName)[number];
@@ -308,28 +316,35 @@ const focusIfEmpty = (key: InputKey) => {
 
 Le code définit une fonction ``focusIfEmpty`` qui met le focus sur un champ de saisie s'il est vide, et lance une erreur si le champ est nul.
 
-## Utility types
+## Types utilitaires
 
-### useFormFieldsRefActions
+### UseFormFieldsRefActions
 
-``useFormFieldsRefActions`` est un type qui aide à obtenir le type de retour du deuxième paramètre d'un hook. Cela peut être utile lorsque vous passez ``setRef`` à un enfant.
+``UseFormFieldsRefActions`` est un type qui aide à obtenir le type de retour du deuxième paramètre d'un hook. Cela peut être utile lorsque vous passez ``setRef`` à un enfant.
 
-##### TSX
+__TSX__
 
 ```tsx
 // Dans votre composant de formulaire
 export const connexionInputs = ["username", "password"] as const;
 
 // Dans votre composant enfant
-import { useFormFieldsRefActions } from "@forthtilliath/react-use-form-fields-ref";
+import { UseFormFieldsRefActions } from "@forthtilliath/react-use-form-fields-ref";
 
 // Action contient tous les types d'action
 type InputKey = (typeof connexionInputs)[number];
-type Action = useFormFieldsRefActions<InputKey>;
+type Action = UseFormFieldsRefActions<InputKey>;
 
 type Props = {
   // Notez le setRef pour obtenir uniquement le type de la méthode setRef
   setRef: Action["setRef"];
 };
-
 ```
+
+## Exemple d'utilisation
+
+Consultez cet [exemple StackBlitz](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx) ([version JS](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx)) pour voir comment ces fonctions peuvent être utilisées dans un formulaire React .
+
+Dans l'exemple, vous pouvez voir comment le crochet `useFormFieldsRef` est utilisé pour gérer les champs du formulaire et comment les autres fonctions peuvent être utilisées pour accéder ou manipuler les données du formulaire. N'hésitez pas à bifurquer l'exemple et à l'expérimenter vous-même !
+
+Faites-moi savoir si vous avez des questions ou des commentaires sur l'exemple.
