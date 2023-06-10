@@ -1,20 +1,10 @@
 import { RefCallback, MutableRefObject, useRef } from "react";
-import { assertIsDefined } from "./utils";
-
-type HTMLFieldElement =
-  | HTMLInputElement
-  | HTMLTextAreaElement
-  | HTMLSelectElement;
-
-type HTMLRadioElement = Array<HTMLInputElement>;
-
-type Field = HTMLFieldElement | HTMLRadioElement;
-
-function isRadioField(
-  refValue: HTMLFieldElement | HTMLRadioElement
-): refValue is HTMLRadioElement {
-  return Array.isArray(refValue);
-}
+import { assertIsDefined, isRadioField } from "./utils";
+import type {
+  Field,
+  HTMLFieldElement,
+  HTMLRadioElement,
+} from "./useFormFieldsRef.d";
 
 /** `useFormFieldsRef` creates an object with references to form inputs and
  * provides methods to get and set their values.
@@ -219,7 +209,7 @@ export function useFormFieldsRef<FieldName extends string>(
  *
  * @example
  * export const connexionInputs = ['username', 'password'] as const
- * type Action = useFormFieldsRefActions<(typeof connexionInputs)[number]>
+ * type Action = UseFormFieldsRefActions<(typeof connexionInputs)[number]>
  * //^?
  * type Actions = {
  *   setRef: (key: "username" | "password") => RefCallback<HTMLFieldElement>;
@@ -233,6 +223,6 @@ export function useFormFieldsRef<FieldName extends string>(
  * //^?
  * type SetRefField = (key: "username" | "password") => RefCallback<HTMLFieldElement>
  */
-export type useFormFieldsRefActions<Keys extends string> = ReturnType<
+export type UseFormFieldsRefActions<Keys extends string> = ReturnType<
   typeof useFormFieldsRef<Keys>
 >[1];

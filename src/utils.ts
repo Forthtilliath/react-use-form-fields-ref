@@ -1,3 +1,5 @@
+import type { HTMLFieldElement, HTMLRadioElement } from "./useFormFieldsRef.d";
+
 /**
  * This function asserts that a value is definite and not null or undefined.
  * @param {T} value - The value that must be checked to be set (not undefined or null).
@@ -14,8 +16,8 @@ export function assertIsDefined<T>(
   }
 }
 
-// export function isRadioField(
-//   refValue: HTMLFieldElement | HTMLRadioElement
-// ): refValue is HTMLRadioElement {
-//   return Array.isArray(refValue);
-// }
+export function isRadioField(
+  refValue: HTMLFieldElement | HTMLRadioElement
+): refValue is HTMLRadioElement {
+  return Array.isArray(refValue);
+}
