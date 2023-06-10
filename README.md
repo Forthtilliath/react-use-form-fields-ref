@@ -342,7 +342,7 @@ type Props = {
 
 ## Example Usage
 
-Check out this [StackBlitz example](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx) ([JS version](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx)) to see how these functions can be used in a React form.
+Check out this [StackBlitz example](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx) ([JS version](https://stackblitz.com/edit/reactjs-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.jsx)) to see how these functions can be used in a React form.
 
 In the example, you can see how the `useFormFieldsRef` hook is used to manage the form fields and how the other functions can be used to access or manipulate the form data. Feel free to fork the example and experiment with it yourself!
 

@@ -343,7 +343,7 @@ type Props = {
 
 ## Exemple d'utilisation
 
-Consultez cet [exemple StackBlitz](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx) ([version JS](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx)) pour voir comment ces fonctions peuvent être utilisées dans un formulaire React .
+Consultez cet [exemple StackBlitz](https://stackblitz.com/edit/react-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.tsx) ([version JS](https://stackblitz.com/edit/reactjs-use-form-fields-ref?file=src%2Fcomponents%2FSignUpForm.jsx)) pour voir comment ces fonctions peuvent être utilisées dans un formulaire React .
 
 Dans l'exemple, vous pouvez voir comment le crochet `useFormFieldsRef` est utilisé pour gérer les champs du formulaire et comment les autres fonctions peuvent être utilisées pour accéder ou manipuler les données du formulaire. N'hésitez pas à bifurquer l'exemple et à l'expérimenter vous-même !
 
