@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Run the tests
+tests_output=$(npm run test)
+
+# Check the test results
+if [[ $? -ne 0 ]]; then
+    echo "Tests failed. Aborting the commit."
+    echo "$tests_output"
+    exit 1
+fi
+
+echo "Tests passed. Committing the changes."
+exit 0
