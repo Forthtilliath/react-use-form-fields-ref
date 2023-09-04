@@ -18,3 +18,19 @@ jobs:
         uses: actions/checkout@v3
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v2
+      - name: 'Customize PR Name'
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = context.issue.number;
+            const newTitle = '⬆️build: upgrade dev dependencies';
+            
+            const res = await github.pulls.update({
+              owner,
+              repo,
+              pull_number: prNumber,
+              title: newTitle
+            });
+            
+            console.log(res.data);
