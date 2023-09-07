@@ -4,7 +4,7 @@
 #
 # Source repository: https://github.com/actions/dependency-review-action
 # Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
-name: 'Dependency Review'
+name: "Dependency Review"
 on: [pull_request]
 
 permissions:
@@ -14,23 +14,10 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout Repository'
+      - name: "Checkout Repository"
         uses: actions/checkout@v3
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v2
-      - name: 'Customize PR Name'
-        uses: actions/github-script@v4
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@v3
         with:
-          script: |
-            const { owner, repo } = context.repo;
-            const prNumber = context.issue.number;
-            const newTitle = '⬆️build: upgrade dev dependencies';
-            
-            const res = await github.pulls.update({
-              owner,
-              repo,
-              pull_number: prNumber,
-              title: newTitle
-            });
-            
-            console.log(res.data);
+          fail-on-severity: moderate
+          deny-licenses: LGPL-2.0, BSD-2-Clause
