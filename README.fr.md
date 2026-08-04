@@ -2,6 +2,12 @@
 
 [![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/Forthtilliath/react-use-form-fields-ref/blob/main/README.md) [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Forthtilliath/react-use-form-fields-ref/blob/main/README.fr.md)
 
+> **⚠️ Déprécié — non maintenu.** Ce projet n'est plus maintenu. Il n'a par
+> ailleurs jamais réellement été publié sur npm malgré ce que ce README
+> indique — les instructions d'installation ci-dessous ne fonctionneront
+> pas. N'hésite pas à forker/copier le hook s'il t'est utile, mais n'attends
+> pas de mises à jour ni de support.
+
 ## Introduction
 
 [![npm version](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?&label=version&style=flat-square)](https://img.shields.io/npm/v/@forthtilliath/react-use-form-fields-ref?label=version&style=flat-square) [![npm download](https://img.shields.io/npm/dt/@forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/npm/dt/@forthtilliath/react-use-form-fields-ref?style=flat-square) [![github repo size](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/github/repo-size/Forthtilliath/react-use-form-fields-ref?style=flat-square) [![licence](https://img.shields.io/npm/l/@forthtilliath/react-use-form-fields-ref?style=flat-square)](https://img.shields.io/npm/l/@forthtilliath/react-use-form-fields-ref?style=flat-square)
